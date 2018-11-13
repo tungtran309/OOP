@@ -15,6 +15,7 @@ public class DataModel {
     public static ArrayList < Class > listClass = new ArrayList <Class>();
     public static ArrayList < Course > listCourse = new ArrayList <Course>();
     public static ArrayList < Teacher > listTeacher = new ArrayList <Teacher>();
+    public static ArrayList < Project > listProjects = new ArrayList<>();
 
     public static Course findCourse(int courseId) {
         for (int i = 0; i < listCourse.size(); i++) {
@@ -105,6 +106,10 @@ public class DataModel {
         return null;
     }
 
+    public static ArrayList<Project> getListProjects() {
+        return listProjects;
+    }
+
     public static ArrayList<Student> getListStudentByCouseId(int courseId) {
         for (Class curClass : listClass) {
             if (curClass.getCourse().getId() == courseId) {
@@ -132,9 +137,17 @@ public class DataModel {
 
         listCourse.add(new Course(1, "Lap trinh huong doi tuong"));
         listCourse.add(new Course(2, "Tieng anh cong nghe thong tin"));
+        listCourse.add(new Course(3, "Linux va phan mem nguon mo"));
+        listCourse.add(new Course(4, "Project 1"));
+        listCourse.add(new Course(5, "Project 2"));
 
         listClass.add( new Class(1, findCourse("Lap trinh huong doi tuong"), listStudent, findTeacher(1), "D6104"));
         listClass.add( new Class(1, findCourse("Tieng anh cong nghe thong tin"), listStudent, findTeacher(3), "D6102"));
+
+        listProjects.add(new Project(1, findCourse("Project 1"), findStudent(1), findTeacher(2), "B1 803"));
+        listProjects.add(new Project(2, findCourse("Project 2"), findStudent(2), findTeacher(2), "B1 803"));
+        listProjects.add(new Project(3, findCourse("Project 1"), findStudent(3), findTeacher(1), "B1 503"));
+
 
         for (int i = 0; i < listStudent.size(); i++) {
             Student student = listStudent.get(i);
